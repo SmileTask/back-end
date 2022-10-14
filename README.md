@@ -27,6 +27,6 @@ falta por desarrollar ->
 
 documentacion para mongoose
     <ul>
-        <li><a href="https://mongoosejs.com/docs/api.html">Documentacion Oficial</a></li>
-        <li><a href="https://www.npmjs.com/package/mongoose">Documentacion de npm</a></li>
+        <li><a href="https://mongoosejs.com/docs/api.html" target="_blank">Documentacion Oficial</a></li>
+        <li><a href="https://www.npmjs.com/package/mongoose" target="_blank">Documentacion de npm</a></li>
     </ul>
