@@ -1,0 +1,29 @@
+{
+  "name": "backend-node",
+  "version": "1.0.0",
+  "description": "<h1>     Start app Back-end Smile task in node.js </h1>",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SmileTask/back-end.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SmileTask/back-end/issues"
+  },
+  "homepage": "https://github.com/SmileTask/back-end#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.6.5",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
