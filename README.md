@@ -10,8 +10,8 @@
     datadase with mongodb
 </h2>
 
+<h3>Modules:</h3>
 <ul>
-    <p>Modules:</p>
     <li>Express</li>
     <li>nodemon -D</li>
     <li>Mongoose</li>
@@ -19,3 +19,14 @@
 
 
 Se creo la ruta principal home, y se creo la vista y el controlador
+
+falta por desarrollar ->
+    <ul>
+        <li>Schema de mongoose</li>
+    </ul>
+
+documentacion para mongoose
+    <ul>
+        <li><a href="https://mongoosejs.com/docs/api.html">Documentacion Oficial</a></li>
+        <li><a href="https://www.npmjs.com/package/mongoose">Documentacion de npm</a></li>
+    </ul>
