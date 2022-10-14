@@ -4,31 +4,28 @@ import morgan from 'morgan'
 import mongoose from 'mongoose';
 
 // import for dev
-import { routerHome } from "./routes/index.routes.js";
+import { routerUser } from "./routes/index.routes.js";
+
+
 
 // instancias
 const app = express();
 
+// midelwere morgan
+app.use(morgan('dev'))
+app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
 
-// function conect at mongodb
-const mongoConection = async () => {
-    try {
-        await mongoose.connect('mongodb://localhost:27017/smiletask-app');
-        return 'successfully connected'
-    } catch (error) {
-        throw error
-    }
-}
+
 // conexcion mongo
-mongoConection()
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
+const DB_URI = 'mongodb://localhost:27017/smiletask-db'
+mongoose.connect(DB_URI, {useNewUrlParser: true, useUnifiedTopology: true}, (err) => {
+    if(err) {
+        console.error(err);
+    }
+})
 
-    
-
-// uso de morgan en la app
-app.use(morgan('tiny'))
-app.use('/api/user' ,routerHome)
+app.use('/api/user' ,routerUser)
 
 
 

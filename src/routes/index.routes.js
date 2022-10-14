@@ -1,3 +1,3 @@
-import routerHome from './home.routes.js'
+import routerUser from './user.routes.js'
 
-export {routerHome}
+export { routerUser }

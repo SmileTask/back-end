@@ -22,7 +22,11 @@ Se creo la ruta principal home, y se creo la vista y el controlador
 
 falta por desarrollar ->
     <ul>
-        <li>Schema de mongoose</li>
+        <li>Desarrollar la logica de negocio</li>
+    </ul>
+Desarrollado ->
+    <ul>
+        <li>Schema de mongoose by Andres Roa</li>
     </ul>
 
 documentacion para mongoose
