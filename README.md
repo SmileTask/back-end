@@ -1,5 +1,6 @@
-cuando clones la repo, utilizar "npm install o npm i" para instalar los modulos que se estan utilizando
-Para arrancar el servidor, el script que ejecuta el servidor es "npm run dev"
+<p>cuando clones la repo, utilizar "npm install o npm i" para instalar los modulos que se estan utilizando</p>
+
+<p>Para arrancar el servidor, el script que ejecuta el servidor es "npm run dev"</p>
 
 <h1>
     Start app Back-end Smile task in node.js
