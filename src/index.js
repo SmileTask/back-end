@@ -8,6 +8,7 @@ import {fileURLToPath} from 'url';
 
 
 
+
 // import for dev
 import { routerUser, routerTask, routerDataUser } from "./routes/index.routes.js";
 
@@ -35,12 +36,13 @@ app.use(express.json())
 
 
 // conexcion mongo
-const DB_URI = 'mongodb://localhost:27017/smiletask-db'
+const DB_URI = process.env.MONGODB_URI
 mongoose.connect(DB_URI, {useNewUrlParser: true, useUnifiedTopology: true}, (err) => {
     if(err) {
         console.error(err);
     }
 })
+
 
 // endpoints creados pasar usar en el front
 // User
@@ -49,7 +51,6 @@ app.use('/api/user' ,routerUser)
 app.use('/api/task', routerTask)
 // Information of user
 app.use('/api/dataUser', routerDataUser)
-
 
 
 
