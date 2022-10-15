@@ -4,7 +4,7 @@ import morgan from 'morgan'
 import mongoose from 'mongoose';
 
 // import for dev
-import { routerUser } from "./routes/index.routes.js";
+import { routerUser, routerTask } from "./routes/index.routes.js";
 
 
 
@@ -25,7 +25,12 @@ mongoose.connect(DB_URI, {useNewUrlParser: true, useUnifiedTopology: true}, (err
     }
 })
 
+// endpoints creados pasar usar en el front
+// User
 app.use('/api/user' ,routerUser)
+// Task
+app.use('/api/task', routerTask)
+
 
 
 

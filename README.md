@@ -27,6 +27,8 @@ falta por desarrollar ->
 Desarrollado ->
     <ul>
         <li>Schema de mongoose by Andres Roa</li>
+        <li>Login y registros terminados by Andres Roa</li>
+        <li>Encriptación y validación del password</li>
     </ul>
 
 documentacion para mongoose

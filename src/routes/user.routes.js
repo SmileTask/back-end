@@ -1,9 +1,9 @@
 import { Router } from 'express'
-import { apiUserGet, apiUserPost } from '../controller/user.controller.js'
+import { userLogin, userRegister } from '../controller/user.controller.js'
 
 const router = Router()
 
-router.get('/', apiUserGet)
-router.post('/', apiUserPost)
+router.post('/register', userRegister)
+router.post('/login', userLogin)
 
 export default router

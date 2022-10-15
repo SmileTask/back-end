@@ -1,22 +1,29 @@
 // importacion del modelo de usuarios
 import { Usuarios } from "../models/index.model.js"
+import bcrypt from 'bcryptjs'
 
-const apiUserGet = (req, res) => {
-    res.send('hola desde el controlador')
+const userLogin = async (req, res) => {
+    const username = req.body.username
+    const userFind = await Usuarios.findOne({username: username})
+    let comparer = await bcrypt.compare(req.body.password, userFind.password)
+    comparer ? res.json({response: true, userFind}) : res.json({response: false, status: 'Fatal Error'})    
 }
 
-const apiUserPost = (req, res) => {
-    Usuarios.create(
-        {
+const userRegister = async (req, res) => {
+    try {
+        const userData = {
             name: req.body.name,
             lastname: req.body.lastname,
             email: req.body.email,
-            password: req.body.password,
+            password: await bcrypt.hash(req.body.password, 8),
             username: req.body.username,
             numberPhone: req.body.numberPhone
         }
-    )
-    res.send('Usuario creado')
+        await Usuarios.create({...userData})
+        return res.send('Usuario creado')
+    } catch {
+        return res.send('Ya existe el username en la base de datos')
+    }
 }
 
-export { apiUserGet, apiUserPost }
+export { userLogin, userRegister }
