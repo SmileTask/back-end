@@ -9,7 +9,7 @@ import {fileURLToPath} from 'url';
 
 
 // import for dev
-import { routerUser, routerTask } from "./routes/index.routes.js";
+import { routerUser, routerTask, routerDataUser } from "./routes/index.routes.js";
 
 
 
@@ -47,6 +47,8 @@ mongoose.connect(DB_URI, {useNewUrlParser: true, useUnifiedTopology: true}, (err
 app.use('/api/user' ,routerUser)
 // Task
 app.use('/api/task', routerTask)
+// Information of user
+app.use('/api/dataUser', routerDataUser)
 
 
 

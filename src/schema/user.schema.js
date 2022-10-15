@@ -11,6 +11,11 @@ const userSchema = new mongoose.Schema(
             type: String,
             require: false
         },
+        image: {
+            type: String,
+            default: 'https://res.cloudinary.com/tauro-dev/image/upload/v1665850694/imageDefault_yx851c.png',
+            require: false
+        },
         email: {
             type: String,
             require: true
