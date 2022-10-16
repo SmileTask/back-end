@@ -3,26 +3,25 @@ import { Usuarios } from "../models/index.model.js"
 import bcrypt from 'bcryptjs'
 
 const userLogin = async (req, res) => {
-    const username = req.body.username
-    const userFind = await Usuarios.findOne({username: username})
-    let comparer = await bcrypt.compare(req.body.password, userFind.password)
-    comparer ? res.json({response: true, userFind}) : res.json({response: false, status: 'Fatal Error'})    
+    const usernameFront = req.body.username
+    const { name, lastname, genero, image, email, password, username, numberPhone } = await Usuarios.findOne({username: usernameFront})
+    const userData = { name, lastname, genero, image, email, username, numberPhone }
+    let comparer = await bcrypt.compare(req.body.password, password)
+    comparer ? res.json({response: true, ...userData}) : res.json({response: false, status: "Credential not found"})    
 }
 
 const userRegister = async (req, res) => {
+    const { name, lastname, email, password, username, numberPhone, genero} = req.body
+    let imageUser = ''
+    genero == 'male' 
+        ? imageUser = 'https://res.cloudinary.com/tauro-dev/image/upload/v1665850694/imageDefault_yx851c.png_desde_male' 
+        : imageUser = 'https://res.cloudinary.com/tauro-dev/image/upload/v1665850694/imageDefault_yx851c.png_desde_female' 
     try {
-        const userData = {
-            name: req.body.name,
-            lastname: req.body.lastname,
-            email: req.body.email,
-            password: await bcrypt.hash(req.body.password, 8),
-            username: req.body.username,
-            numberPhone: req.body.numberPhone
-        }
-        await Usuarios.create({...userData})
-        return res.send('Usuario creado')
+        const userData = { name, lastname, genero, image: imageUser, email, username, numberPhone }
+        await Usuarios.create({...userData, password: await bcrypt.hash(password, 8)})
+        return res.json({...userData})
     } catch {
-        return res.send('Ya existe el username en la base de datos')
+        return res.json({response: false})
     }
 }
 

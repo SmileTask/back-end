@@ -1,25 +1,29 @@
 // import for librery
-import express from "express";
+import express from 'express';
 import morgan from 'morgan'
 import mongoose from 'mongoose';
 import multer from "multer";
 import path from 'path'
 import {fileURLToPath} from 'url';
+import { Server as socketServer } from 'socket.io';
+import http from 'http';
+import cors from 'cors';
 
 
 
 
 // import for dev
-import { routerUser, routerTask, routerDataUser } from "./routes/index.routes.js";
-
-
+import { routerUser, routerTask, routerDataUser } from "./routes/index.routes.js"
 
 // instancias
 const app = express();
+// instancia de socket io
+const server = http.createServer(app)
+const io = new socketServer(server)
 
 // configuracion para que __dirname funcione como modulo
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 // configuracion para subir las imagenes
 const storage = multer.diskStorage({
@@ -29,6 +33,7 @@ const storage = multer.diskStorage({
     }
 })
 // midelwere morgan
+app.use(cors())
 app.use(morgan('dev'))
 app.use(multer({storage}).single('image')) // Configuración y .single() recibe como parametro el nombre del input que enviara o cargara la imagen
 app.use(express.urlencoded({ extended: false }))
@@ -54,7 +59,7 @@ app.use('/api/dataUser', routerDataUser)
 
 
 
-export { app }
+export { app, server }
 
 
 

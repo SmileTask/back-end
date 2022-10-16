@@ -28,7 +28,8 @@ Desarrollado ->
     <ul>
         <li>Schema de mongoose by Andres Roa</li>
         <li>Login y registros terminados by Andres Roa</li>
-        <li>Encriptación y validación del password</li>
+        <li>Encriptación y validación del password by Andres Roa</li>
+        <li>Conexión con cloudinary, transformación de fotos, actualización y eliminación de fotos by Andres Roa</li>
     </ul>
 
 documentacion para mongoose
